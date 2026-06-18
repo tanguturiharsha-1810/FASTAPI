@@ -120,29 +120,57 @@ docker compose up -d
 docker ps
 ```
 
----
+## Docker Hub
 
-## Access Application
+The application image is available on Docker Hub.
 
-### FastAPI API
+### Pull the Image
+
+```bash
+docker pull harshatanguturi1810/fastapi_postgresql:latest
+```
+
+### Run the Container
+
+```bash
+docker run -p 8000:8000 harshatanguturi1810/fastapi_postgresql:latest
+```
+
+### Verify the Container
+
+```bash
+docker ps
+```
+
+### Access the Application
+
+FastAPI API:
 
 ```text
 http://localhost:8000
 ```
 
-### Swagger Documentation
+Swagger UI:
 
 ```text
 http://localhost:8000/docs
 ```
 
-### ReDoc Documentation
+ReDoc Documentation:
 
 ```text
 http://localhost:8000/redoc
 ```
 
+### Docker Hub Repository
+
+```text
+https://hub.docker.com/r/harshatanguturi1810/fastapi_postgresql
+```
+
+
 ---
+
 
 ## Authentication Flow
 
