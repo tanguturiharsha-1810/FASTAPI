@@ -1,4 +1,4 @@
-import Models,schemas
+import blog.models.Models as Models,blog.schemas.schemas as schemas
 from fastapi import FastAPI,Depends,status,Response,HTTPException,APIRouter
 from sqlalchemy.orm import Session
 
@@ -14,8 +14,8 @@ def get_byId(id:int,db:Session):
       raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail=f'Blog with the id {id} is not available')
    return blogs
 
-def create(request:schemas.Blog,db:Session):
-    new_blog = Models.Blog(title=request.title,body=request.body,user_id=1)
+def create(request:schemas.Blog,db:Session,current_user:schemas.User):
+    new_blog = Models.Blog(title=request.title,body=request.body,current_user_id=current_user.id)
     db.add(new_blog)
     db.commit()
     db.refresh(new_blog)

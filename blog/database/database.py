@@ -1,10 +1,11 @@
+import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
 
 
-db_url= "postgresql://postgres:Harsha%4018@localhost:5432/blogdb"
+db_url= os.getenv("DATABASE_URL")
 
 engine= create_engine(db_url,)
 

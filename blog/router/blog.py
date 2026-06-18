@@ -1,9 +1,9 @@
 from fastapi import FastAPI,Depends,status,Response,HTTPException,APIRouter
-import schemas,database,Models
+import blog.schemas.schemas as schemas,blog.database.database as database,blog.models.Models as Models
 from typing import Any
 from sqlalchemy.orm import Session
-from repository import blog
-import oauth2
+from blog.repository import blog
+import blog.auth.oauth2 as oauth2
 
 router =APIRouter (
    prefix='/blog',

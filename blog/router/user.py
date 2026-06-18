@@ -1,10 +1,10 @@
 from fastapi import FastAPI,Depends,status,Response,HTTPException,APIRouter
-import schemas,database,Models
+import blog.schemas.schemas as schemas,blog.database.database as database,blog.models.Models as Models
 from typing import Any
 from sqlalchemy.orm import Session
-from hashing import Hash
-from repository import user
-import oauth2
+from blog.auth.hashing import Hash
+from blog.repository import user
+import blog.auth.oauth2 as oauth2
 
 router =APIRouter(
    prefix='/user',
@@ -14,7 +14,7 @@ router =APIRouter(
 get_db= database.get_db
 
 @router.post('/',response_model=schemas.ShowUser)
-def create_user(request:schemas.User,db:Session=Depends(get_db),current_user:schemas.User = Depends(oauth2.get_current_user)):
+def create_user(request:schemas.User,db:Session=Depends(get_db)):
    return user.create(request,db)
  
 

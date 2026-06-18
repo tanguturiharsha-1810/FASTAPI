@@ -1,9 +1,18 @@
-import Models,schemas
+import blog.models.Models as Models,blog.schemas.schemas as schemas
 from fastapi import FastAPI,Depends,status,Response,HTTPException,APIRouter
 from sqlalchemy.orm import Session
-from hashing import Hash
+from blog.auth.hashing import Hash
 
 def create(request:schemas.User,db:Session=Depends):
+   existing_user = db.query(Models.User).filter(
+    Models.User.Email == request.Email
+                 ).first()
+
+   if existing_user:
+    raise HTTPException(
+        status_code=400,
+        detail="Email already registered"
+    )
    new_user = Models.User(name=request.name,Email=request.Email,password=Hash.bcrypt(request.password))
    db.add(new_user)
    db.commit()
