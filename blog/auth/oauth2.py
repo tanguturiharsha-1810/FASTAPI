@@ -3,6 +3,7 @@ from fastapi.security import OAuth2PasswordBearer
 import blog.auth.tokens as tokens
 from sqlalchemy.orm import Session
 import blog.database.database as database
+from ..models import Models
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/login")
 
@@ -13,7 +14,7 @@ def get_current_user(token: str = Depends(oauth2_scheme),db: Session = Depends(d
         headers={"WWW-Authenticate": "Bearer"},
     )
     token_data = tokens.verify_token(token, credentials_exception)
-    user = db.query(database.User).filter(database.User.Email == token_data.Email).first()
+    user = db.query(Models.User).filter(Models.User.Email == token_data.Email).first()
     if user is None:
         raise credentials_exception
     return user
