@@ -3,7 +3,7 @@ from fastapi.security import OAuth2PasswordBearer
 import blog.auth.tokens as tokens
 from sqlalchemy.orm import Session
 import blog.database.database as database
-from ..models import Models
+import blog.models.models as Models
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/login")
 
