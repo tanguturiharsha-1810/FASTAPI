@@ -1,18 +1,38 @@
 # FastAPI Blog API
 
-A RESTful Blog API built with FastAPI, PostgreSQL, SQLAlchemy, JWT Authentication, and Docker.
+A RESTful Blog API built with FastAPI, PostgreSQL, SQLAlchemy, JWT Authentication, Docker, and Render Cloud Deployment.
+
+## Live Deployment
+
+### Production API
+
+https://fastapi-blog-api-eksi.onrender.com
+
+### Swagger Documentation
+
+https://fastapi-blog-api-eksi.onrender.com/docs
+
+### ReDoc Documentation
+
+https://fastapi-blog-api-eksi.onrender.com/redoc
+
+---
 
 ## Features
 
 * User Registration
 * User Authentication using JWT
 * Password Hashing with Bcrypt
+* User-Specific Blog Ownership
 * Blog CRUD Operations
 * PostgreSQL Database Integration
 * SQLAlchemy ORM
 * Interactive API Documentation (Swagger UI)
 * Dockerized Application
 * Docker Compose Support
+* Docker Hub Image Publishing
+* Environment Variable Configuration
+* Cloud Deployment using Render
 * Persistent Database Storage using Docker Volumes
 
 ---
@@ -26,7 +46,30 @@ A RESTful Blog API built with FastAPI, PostgreSQL, SQLAlchemy, JWT Authenticatio
 * Passlib (Bcrypt)
 * Docker
 * Docker Compose
+* Docker Hub
+* Render
+* Neon PostgreSQL
 * Uvicorn
+
+---
+
+## Deployment Architecture
+
+```text
+Client
+   │
+   ▼
+Render Cloud Deployment
+   │
+   ▼
+FastAPI Application
+   │
+   ▼
+SQLAlchemy ORM
+   │
+   ▼
+Neon PostgreSQL Database
+```
 
 ---
 
@@ -120,6 +163,8 @@ docker compose up -d
 docker ps
 ```
 
+---
+
 ## Docker Hub
 
 The application image is available on Docker Hub.
@@ -164,13 +209,34 @@ http://localhost:8000/redoc
 
 ### Docker Hub Repository
 
-```text
 https://hub.docker.com/r/harshatanguturi1810/fastapi_postgresql
-```
-
 
 ---
 
+## Cloud Deployment
+
+### Live Application
+
+https://fastapi-blog-api-eksi.onrender.com
+
+### Deployment Stack
+
+* Render (Application Hosting)
+* Neon PostgreSQL (Cloud Database)
+* Docker (Containerization)
+* Docker Hub (Image Registry)
+* GitHub (Version Control)
+
+### Deployment Features
+
+* Automatic Deployment from GitHub
+* Environment Variable Management
+* Cloud PostgreSQL Database
+* JWT Authentication
+* Docker Container Deployment
+* Public API Documentation
+
+---
 
 ## Authentication Flow
 
@@ -182,14 +248,31 @@ https://hub.docker.com/r/harshatanguturi1810/fastapi_postgresql
 
 ---
 
+## Project Highlights
+
+* Developed a RESTful Blog API using FastAPI and PostgreSQL
+* Implemented JWT Authentication and Authorization
+* Secured Passwords using Bcrypt Hashing
+* Built Complete CRUD Operations for Blogs and Users
+* Implemented User-Specific Blog Ownership
+* Containerized the Application using Docker and Docker Compose
+* Published Docker Images to Docker Hub
+* Configured Environment Variables for Secure Deployment
+* Deployed the Application Publicly using Render
+* Integrated Swagger/OpenAPI Documentation
+
+---
+
 ## Future Improvements
 
 * Alembic Database Migrations
-* Environment Variables (.env)
-* Role-Based Access Control
+* Role-Based Access Control (RBAC)
 * Unit Testing with Pytest
-* Blog Ownership and Permissions
-* Cloud Deployment
+* GitHub Actions CI/CD Pipeline
+* Redis Caching
+* API Rate Limiting
+* Email Verification and Password Reset
+* Custom Domain Deployment
 
 ---
 
@@ -197,4 +280,4 @@ https://hub.docker.com/r/harshatanguturi1810/fastapi_postgresql
 
 **Tanguturi Harshavardhan Reddy**
 
-Python Developer | FastAPI | PostgreSQL | Docker
+
