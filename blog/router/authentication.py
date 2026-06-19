@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 
 import blog.schemas.schemas as schemas
 import blog.database.database as database
-import blog.models.Models as Models
+import blog.models.models as Models
 import blog.auth.tokens as tokens
 
 from blog.auth.hashing import Hash

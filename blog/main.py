@@ -1,7 +1,7 @@
 
 from fastapi import FastAPI
 from blog.database.database import engine
-import blog.models.Models as Models
+import blog.models.models as Models
 from blog.router import blog, user, authentication
 
 

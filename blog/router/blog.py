@@ -1,5 +1,5 @@
 from fastapi import FastAPI,Depends,status,Response,HTTPException,APIRouter
-import blog.schemas.schemas as schemas,blog.database.database as database,blog.models.Models as Models
+import blog.schemas.schemas as schemas,blog.database.database as database,blog.models.models as Models
 from typing import Any
 from sqlalchemy.orm import Session
 from blog.repository import blog

@@ -1,4 +1,4 @@
-import blog.models.Models as Models,blog.schemas.schemas as schemas
+import blog.models.models as Models,blog.schemas.schemas as schemas
 from fastapi import FastAPI,Depends,status,Response,HTTPException,APIRouter
 from sqlalchemy.orm import Session
 
