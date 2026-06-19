@@ -15,12 +15,15 @@ def get_byId(id:int,db:Session):
    return blogs
 
 def create(request:schemas.Blog,db:Session,current_user:schemas.User):
-    new_blog = Models.Blog(title=request.title,body=request.body,current_user_id=current_user.id)
+    new_blog = Models.Blog(
+        title=request.title,
+        body=request.body,
+        user_id=current_user.id
+    )
     db.add(new_blog)
     db.commit()
     db.refresh(new_blog)
-    return new_blog 
-
+    return new_blog
 
 def update(id:int,request:schemas.Blog,db:Session=Depends):
    blog=db.query(Models.Blog).filter(Models.Blog.id==id)
